@@ -11,6 +11,8 @@ import SpecialOffersModal from './SpecialOffersModal/SpecialOffersModal';
 import OurSpecialOffers from './OurSpecialOffers/OurSpecialOffers';
 
 
+// added home pages and there section
+
 function Home() {
   return (
     <div className="home-container">
