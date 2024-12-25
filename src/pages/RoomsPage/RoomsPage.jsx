@@ -4,6 +4,8 @@ import axios from "axios";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import icons
 import ReactTitle from "react-helmet";
 
+// all rooms page
+
 
 const RoomsPage = () => {
   const [rooms, setRooms] = useState([]);
