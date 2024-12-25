@@ -10,7 +10,8 @@ import RoomsPage from "../pages/RoomsPage/RoomsPage";
 import RoomDetailsPage from "../pages/RoomDetails/RoomDetailsPage";
 import MyBooking from "../pages/MyBooking/MyBooking";
 
-//set router
+//set router my git folder caused problem this is why i am using push like this
+
 
 const router = createBrowserRouter([
     {

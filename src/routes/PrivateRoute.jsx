@@ -7,6 +7,8 @@ const PrivateRoute = ({ children }) => {
   const { user, loading,redirectPath, setRedirectPath } = useContext(AuthContext);
   const location = useLocation();
 
+// set private router
+
  
   useEffect(() => {
     if (!user) {
