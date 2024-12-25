@@ -8,6 +8,8 @@ import Swal from "sweetalert2";
 import moment from "moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 
+// my booking page
+
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
