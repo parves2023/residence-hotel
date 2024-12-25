@@ -6,6 +6,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { AuthContext } from '../../providers/AuthProvider';
 import ReactTitle from "react-helmet";
 
+//room detaisl page
+
 const RoomDetailsPage = () => {
   const {user} = useContext(AuthContext);
   const { id } = useParams();
