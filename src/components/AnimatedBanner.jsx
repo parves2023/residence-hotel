@@ -3,6 +3,9 @@ import Lottie from 'lottie-react';
 
 import travelAnimation from "../assets/Animation - 1733505845521.json";
 
+//animated banner for home page
+
+
 const AnimatedBanner = () => {
   return (
     <div className="flex justify-center items-center">
