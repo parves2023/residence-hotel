@@ -11,6 +11,8 @@ import app from "../firebase/firebase.init";
 import { GoogleAuthProvider } from "firebase/auth";
 import axios from "axios";
 
+// set authprovider with firebase
+
 const provider = new GoogleAuthProvider();
 
 export const AuthContext = createContext(null);
