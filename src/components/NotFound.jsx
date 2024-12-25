@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import AnimatedBanner from "./AnimatedBanner";
 
+// not found page with lottie animation
+
 const NotFound = () => {
   const navigate = useNavigate();
 
