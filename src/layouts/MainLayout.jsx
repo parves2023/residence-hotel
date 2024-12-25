@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import ScrollToTop from "react-scroll-to-top";
 import { FaArrowAltCircleUp } from "react-icons/fa";
 
+// main layout page
+
 
 const MainLayout = () => {
     return (
