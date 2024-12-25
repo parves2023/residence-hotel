@@ -10,7 +10,7 @@ import RoomsPage from "../pages/RoomsPage/RoomsPage";
 import RoomDetailsPage from "../pages/RoomDetails/RoomDetailsPage";
 import MyBooking from "../pages/MyBooking/MyBooking";
 
-
+//set router
 
 const router = createBrowserRouter([
     {
