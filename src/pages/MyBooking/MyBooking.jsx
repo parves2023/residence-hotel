@@ -6,6 +6,7 @@ import GiveReview from "./GiveReview";
 import ReactTitle from "react-helmet";
 import Swal from "sweetalert2";
 import moment from "moment";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBooking = () => {
   const { user } = useContext(AuthContext);
@@ -16,17 +17,30 @@ const MyBooking = () => {
   const [selectedBooking, setSelectedBooking] = useState(null);
   const userEmail = user?.email;
 
-  const [cancelButton, setCancleButton] = useState(true);
+  const axiosSecure = useAxiosSecure();
+
+ 
 
   useState(() => {}, []);
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:5000/api/my-bookings/${userEmail}`
-        );
-        setBookings(response.data);
+        // const response = await axios.get(
+        //   `http://localhost:5000/api/my-bookings/${userEmail}`,{
+        //     withCredentials: true
+        //   }
+        // );
+
+        axiosSecure.get(`/api/my-bookings/${userEmail}`)
+        .then(res => setBookings(res.data));
+
+
+        // const response = axiosSecure.get(`/api/my-bookings/${userEmail}`);
+        // console.log(response);
+        // setBookings(response.data.data);
+
+
       } catch (error) {
         console.error("Error fetching bookings:", error);
       } finally {
