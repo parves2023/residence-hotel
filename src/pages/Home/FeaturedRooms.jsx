@@ -112,36 +112,23 @@ function FeaturedRooms() {
                     alt={room.name}
                     className="w-full h-40 object-cover rounded-md mb-4"
                   />
-                  <h3 className="text-lg font-semibold">{room.name}</h3>
-                  <p className="text-gray-500">{room.description}</p>
-                  <p className="text-blue-600 font-bold mt-2">{room.price}</p>
+                  <h3 className="text-lg font-semibold font-sans text-yellow-600">{room.name}</h3>
+                  <p className="text-gray-500 font-mono">{room.description}</p>
+                  <p className=" font-bold my-2  text-yellow-600">{room.price}</p>
                               <div className="flex items-center mt-2">
                                 {renderStars(room?.rating)}
                                 <span className="ml-2 text-gray-600">
                                   {room?.rating.toFixed(1)}
                                 </span>
                               </div>
-
-                              
-                              
-
-
-
-
-                             
-
-
-
-
-
-
                   <Link
                     to={`/rooms/${room._id}`}
-                    className="text-white bg-blue-500 hover:bg-blue-600 rounded-md px-4 py-2 mt-3 inline-block"
+                    className="text-white bg-yellow-600 hover:bg-yellow-700 rounded-md px-4 py-2 mt-3 inline-block"
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
+
                     >
                       View Details
                     </motion.div>
