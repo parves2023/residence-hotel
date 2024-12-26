@@ -65,7 +65,7 @@ const Slider = () => {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-4 text-center">
             {/* Typewriter Effect for Heading */}
             {currentIndex === index && (
-              <h2 className="text-3xl md:text-5xl font-bold">
+              <h2 className="text-3xl md:text-5xl font-bold font-mono">
                 <Typewriter
                   words={[banner.heading]} // Show only the current slide heading
                   
@@ -74,14 +74,14 @@ const Slider = () => {
                 />
               </h2>
             )}
-            <p className="mt-4 text-lg md:text-xl text-green-300">
+            <p className="mt-4 text-lg md:text-xl text-yellow-600 font-mono">
               {banner.text}
             </p>
 
             {/* Button to Rooms Page */}
             <button
               onClick={handleRoomsRedirect}
-              className="mt-6 bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-md text-lg font-semibold shadow-lg transition duration-300"
+              className="mt-6 bg-yellow-600 hover:bg-yellow-700 text-gray-200 font-sans px-6 py-2 rounded-md text-lg font-semibold shadow-lg transition duration-300"
             >
               Explore Rooms
             </button>

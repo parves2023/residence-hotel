@@ -50,11 +50,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost  text-2xl"><span className="text-yellow-600 ">Residence</span> Hotel</a>
+        <a className="btn btn-ghost font-sans text-gray-600 text-2xl"><span className="text-yellow-600 font-bold font-sans">Residence</span>Hotel</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
+        <ul className="menu menu-horizontal px-1 font-sans">
           <li>
             <NavLink to="/" className="block p-2">
               Home
@@ -78,7 +78,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleSignOut}
-            className="btn btn-ghost text-base mr-1 bg-yellow-600 text-white"
+            className="btn btn-ghost text-base mr-1 bg-yellow-600 text-white font-mono"
           >
             Logout
           </button>
@@ -100,7 +100,7 @@ const Navbar = () => {
             alt="Profile"
             className="size-10 mx-auto rounded-full ring ring-yellow-300 text-center"
           />
-            <h2 className="text-xs ">Welcome {user?.displayName}</h2>
+            <h2 className="text-xs font-serif font-extralight">Welcome {user?.displayName}</h2>
             </div>
           
           </div>

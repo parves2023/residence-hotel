@@ -85,12 +85,12 @@ function FeaturedRooms() {
             repeat: Infinity, // Repeat the animation infinitely
             repeatType: "reverse", // Smooth reversing for the scale
           }}
-          className="text-3xl w-7/12 mx-auto font-semibold text-gray-900 mb-4"
+          className="text-3xl w-7/12 mx-auto font-semibold  mb-4 font-mono text-yellow-600"
         >
           Featured Rooms
         </motion.h2>
 
-        <p className="leading-relaxed text-lg text-gray-600">
+        <p className="leading-relaxed text-lg text-gray-600 font-mono">
           Discover our top-rated rooms, each designed to provide you with an
           unforgettable stay.
         </p>
