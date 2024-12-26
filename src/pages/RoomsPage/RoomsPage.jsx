@@ -101,7 +101,7 @@ const RoomsPage = () => {
   return (
     <div className="container mx-auto py-8">
       <ReactTitle title="RH || Rooms" />
-      <h1 className="text-3xl font-bold mb-8 text-center">Rooms 🛌</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">Rooms 🛌</h1>
 
 
 
@@ -126,7 +126,7 @@ const RoomsPage = () => {
             setMinPrice(""); // Reset the filters
             setMaxPrice(""); // Reset the filters
           }}
-          className="bg-gray-200 px-4 py-2 rounded"
+          className=" px-4 py-2 rounded bg-yellow-600 text-white font-sans btn"
         >
           Reset
         </button>
@@ -152,12 +152,12 @@ const RoomsPage = () => {
 
               {/* View Details Text (Visible only on hover) */}
               <div className="absolute rounded-lg inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xl font-bold">View Details</span>
+                <span className="text-xl font-bold text-yellow-400">View Details</span>
               </div>
 
               <div className="p-4">
-                <h2 className="text-xl font-bold mb-2">{room.name}</h2>
-                <p className="text-gray-600 mb-1">${room.price} per night</p>
+                <h2 className="text-xl font-bold mb-2 font-sans text-yellow-600">{room.name}</h2>
+                <p className="text-gray-600 mb-1 font-mono">{room.price} per night</p>
                 <p className="text-sm text-gray-500 mb-1">
                   {Array.isArray(room.reviews) ? room.reviews.length : 0}{" "}
                   Review(s)

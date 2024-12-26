@@ -171,10 +171,10 @@ const MyBooking = () => {
   return (
     <div className="container mx-auto py-8">
       <ReactTitle title="RH || Booking" />
-      <h1 className="text-3xl font-bold mb-8 text-center">My Bookings</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">My Bookings</h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300">
-          <thead>
+          <thead className="font-sans">
             <tr className="bg-gray-100 text-left">
               <th className="px-4 py-2 border-b border-gray-300">Room Image</th>
               <th className="px-4 py-2 border-b border-gray-300">Room Name</th>
@@ -187,7 +187,7 @@ const MyBooking = () => {
               <th className="px-4 py-2 border-b border-gray-300">Review</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-mono">
             {bookings.map((room) =>
               room?.bookings.map((booking, index) => (
                 <tr key={`${room._id}-${index}`} className="hover:bg-gray-50">
@@ -202,7 +202,7 @@ const MyBooking = () => {
                     {room.name}
                   </td>
                   <td className="px-4 py-2 border-b border-gray-300">
-                    ${room.price}
+                    {room.price}
                   </td>
                   <td className="px-4 py-2 border-b border-gray-300">
                     {booking.date}

@@ -47,7 +47,7 @@ const GiveReview = ({ roomId }) => {
     <div>
       <button
         onClick={() => setShowModal(true)}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-4 px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700 font-semibold"
       >
         Give Review
       </button>

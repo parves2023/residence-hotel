@@ -7,7 +7,7 @@ const Footer = () => {
           <h2 className="text-4xl font-bold">
             Residence <span className="text-yellow-600">Hotel</span>
           </h2>
-          <p className="mt-3 text-gray-300">
+          <p className="mt-3 text-gray-300 font-mono">
             Caribbean Ct, Haymarket, Virginia (VA). Your trusted partner for
             Hotel solutions.
           </p>

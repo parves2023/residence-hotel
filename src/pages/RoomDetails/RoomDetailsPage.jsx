@@ -91,7 +91,7 @@ const handleBooking = async () => {
     <div className="container mx-auto py-8">
        <ToastContainer />
       <ReactTitle title="RH || Details"/>
-      <h1 className="text-2xl font-bold mb-6">{room.name}</h1>
+      <h1 className="text-3xl font-bold mb-6 text-center font-sans text-yellow-600">{room.name}</h1>
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/2">
           <img
@@ -101,11 +101,11 @@ const handleBooking = async () => {
           />
         </div>
         <div className="md:w-1/2">
-          <h2 className="text-xl font-semibold">Details</h2>
-          <p className="mt-2 text-gray-700">{room.description}</p>
-          <p className="mt-2 text-xl font-bold">{room.price}</p>
-          <p className="mt-2 text-sm text-gray-500">Rating: {room.rating} ★</p>
-          <p className="mt-2 text-sm text-gray-500">
+          <h2 className="text-xl font-semibold text-[#2a3b26]">Details</h2>
+          <p className="mt-2 text-[#2a3b26] font-mono" >{room.description}</p>
+          <p className="mt-2 text-xl font-bold text-[#2a3b26]">{room.price}</p>
+          <p className="mt-2 text-sm text-gray-500 font-mono">Rating: {room.rating} ★</p>
+          <p className="mt-2 text-sm text-gray-500 font-mono">
             Availability: {room.availability ? 'Available' : 'Not Available'}
           </p>
 
@@ -113,7 +113,7 @@ const handleBooking = async () => {
           {room.availability && (
             <button
             onClick={handleBookNow} // Remove the extra arrow function
-            className="mt-4 px-6 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600"
+            className="mt-4 px-6 py-2 bg-yellow-600 text-white font-sans  font-bold rounded hover:bg-yellow-700"
           >
             Book Now
           </button>
@@ -121,12 +121,12 @@ const handleBooking = async () => {
 
           {/* Reviews Section */}
           <div className="mt-4">
-            <h3 className="text-lg font-semibold">Reviews</h3>
+            <h3 className="text-lg font-bold font-sans ">Reviews</h3>
             {room.reviews && room.reviews.length > 0 ? (
               room.reviews.map((review, index) => (
                 <div key={index} className="mt-2 border-b pb-4">
-                  <p className="font-semibold">{review.reviewer} || {review?.timestamp ? review.timestamp : "2024-12-23"}</p>
-                  <p className="text-sm text-gray-600">{review.comment}</p>
+                  <p className="font-semibold text-gray-600 font-sans">{review.reviewer} || <span className='font-light'>{review?.timestamp ? review.timestamp : "2024-12-23"}</span></p>
+                  <p className="text-sm text-gray-600 font-mono">{review.comment}</p>
                   <p className="text-sm text-yellow-500">{'★'.repeat(review.rating)} ({review.rating})</p>
                 </div>
               ))
