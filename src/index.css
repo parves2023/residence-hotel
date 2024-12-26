@@ -64,3 +64,11 @@ body{
 
 
 
+
+.active {
+  background-color: #CA8A04 !important;
+  color: white !important; /* Ensure the text is readable against the yellow background */
+  font-weight: bold; /* Highlight the active link more prominently */
+  border-radius: 5px; /* Add rounded corners for a modern look */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+}

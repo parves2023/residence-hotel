@@ -34,7 +34,7 @@ const Navbar = () => {
             className="menu z-50 menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
           >
             <li>
-              <NavLink to="/" className="block p-2">
+              <NavLink to="/" className="block p-2 ">
                 Home
               </NavLink>
             </li>
@@ -50,7 +50,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><span className="text-blue-300">Residence</span> Hotel</a>
+        <a className="btn btn-ghost  text-2xl"><span className="text-yellow-600 ">Residence</span> Hotel</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -78,7 +78,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleSignOut}
-            className="btn btn-ghost text-base"
+            className="btn btn-ghost text-base mr-1 bg-yellow-600 text-white"
           >
             Logout
           </button>
@@ -98,7 +98,7 @@ const Navbar = () => {
             <img
             src={user?.photoURL || "https://via.placeholder.com/150"}
             alt="Profile"
-            className="size-10 mx-auto rounded-full ring ring-green-300 text-center"
+            className="size-10 mx-auto rounded-full ring ring-yellow-300 text-center"
           />
             <h2 className="text-xs ">Welcome {user?.displayName}</h2>
             </div>

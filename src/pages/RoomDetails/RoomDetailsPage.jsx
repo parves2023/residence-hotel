@@ -6,6 +6,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { AuthContext } from '../../providers/AuthProvider';
 import ReactTitle from "react-helmet";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+
+
 //room detaisl page
 
 const RoomDetailsPage = () => {
@@ -34,35 +39,41 @@ const RoomDetailsPage = () => {
     fetchRoomDetails();
   }, [id]);
 
-  const handleBooking = async () => {
-    if (!bookingDate) {
-      setBookingError('Please select a booking date.');
-      return;
-    }
+  
+const handleBooking = async () => {
+  if (!bookingDate) {
+    setBookingError('Please select a booking date.');
+    toast.error('Please select a booking date.');
+    return;
+  }
 
-    if (!room.availability) {
-      setBookingError('Room is not available.');
-      return;
-    }
+  if (!room.availability) {
+    setBookingError('Room is not available.');
+    toast.error('Room is not available.');
+    return;
+  }
 
-    try {
-      await axios.post(`http://localhost:5000/api/book-room`, {
-        roomId: id,
-        date: bookingDate,
-        email: user?.email, 
-      });
+  try {
+    await axios.post(`http://localhost:5000/api/book-room`, {
+      roomId: id,
+      date: bookingDate,
+      email: user?.email,
+    });
 
-      // Update room availability after booking
-      setRoom((prevRoom) => ({
-        ...prevRoom,
-        availability: false,
-      }));
-      setShowModal(false);
-      alert('Room booked successfully!');
-    } catch (error) {
-      setBookingError('Failed to book the room. Please try again.');
-    }
-  };
+    // Update room availability after booking
+    setRoom((prevRoom) => ({
+      ...prevRoom,
+      availability: false,
+    }));
+    setShowModal(false);
+
+    // Show success message using Toastify
+    toast.success('Room booked successfully!');
+  } catch (error) {
+    setBookingError('Failed to book the room. Please try again.');
+    toast.error('Failed to book the room. Please try again.');
+  }
+};
 
   const handleBookNow = () => {
     if (!user) {
@@ -78,6 +89,7 @@ const RoomDetailsPage = () => {
 
   return (
     <div className="container mx-auto py-8">
+       <ToastContainer />
       <ReactTitle title="RH || Details"/>
       <h1 className="text-2xl font-bold mb-6">{room.name}</h1>
       <div className="flex flex-col md:flex-row gap-6">
