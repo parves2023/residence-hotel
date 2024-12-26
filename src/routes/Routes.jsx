@@ -9,6 +9,9 @@ import ForgotPass from "../components/ForgotPass";
 import RoomsPage from "../pages/RoomsPage/RoomsPage";
 import RoomDetailsPage from "../pages/RoomDetails/RoomDetailsPage";
 import MyBooking from "../pages/MyBooking/MyBooking";
+import AboutUs from "../components/AboutUs";
+import ContactUs from "../components/ContactUs";
+
 
 //set router my git folder caused problem this is why i am using push like this
 
@@ -45,7 +48,16 @@ const router = createBrowserRouter([
             {
                 path: '/bookings',
                 element: <PrivateRoute><MyBooking></MyBooking></PrivateRoute>
+            },
+            {
+                path: "about",
+                element: <AboutUs/>
+            },
+            {
+                path: "contact",
+                element: <ContactUs></ContactUs>
             }
+            
 
 
            

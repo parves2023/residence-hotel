@@ -4,7 +4,7 @@ import useAuth from "./useAuth";
 import { useNavigate } from "react-router-dom";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://hotel-management-liart.vercel.app",
   withCredentials: true,
 });
 
@@ -23,7 +23,7 @@ function useAxiosSecure() {
           logOut()
             .then(() => {
               console.log("User logged out successfully");
-              navigate('/login');
+              navigate("/login");
             })
             .catch((error) => console.log("Error logging out:", error));
         }
@@ -31,14 +31,8 @@ function useAxiosSecure() {
       }
     );
   }, [logOut, navigate]); // Add dependencies to avoid stale references
-  
-
-
 
   return axiosInstance;
 }
-
-
-
 
 export default useAxiosSecure;

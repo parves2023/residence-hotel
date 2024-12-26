@@ -6,15 +6,11 @@ import ReactTitle from "react-helmet";
 
 // all rooms page
 
-
 const RoomsPage = () => {
   const [rooms, setRooms] = useState([]);
 
-
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
-
 
   // Function to render star ratings
   const renderStars = (rating) => {
@@ -43,7 +39,7 @@ const RoomsPage = () => {
   // useEffect(() => {
   //   const fetchRooms = async () => {
   //     try {
-  //       const response = await axios.get("http://localhost:5000/api/rooms"); // Adjust API endpoint
+  //       const response = await axios.get("https://hotel-management-liart.vercel.app/api/rooms"); // Adjust API endpoint
   //       const data = response.data;
 
   //       // Ensure data is an array
@@ -62,11 +58,8 @@ const RoomsPage = () => {
   //   fetchRooms();
   // }, []);
 
-
-
-
-   // Fetch all rooms from the backend
-   useEffect(() => {
+  // Fetch all rooms from the backend
+  useEffect(() => {
     const fetchRooms = async () => {
       try {
         // Construct query parameters for price filter
@@ -74,7 +67,9 @@ const RoomsPage = () => {
         if (minPrice) query.append("minPrice", minPrice);
         if (maxPrice) query.append("maxPrice", maxPrice);
 
-        const response = await axios.get(`http://localhost:5000/api/rooms?${query.toString()}`);
+        const response = await axios.get(
+          `https://hotel-management-liart.vercel.app/api/rooms?${query.toString()}`
+        );
         const data = response.data;
 
         // Ensure data is an array
@@ -93,20 +88,15 @@ const RoomsPage = () => {
     fetchRooms();
   }, [minPrice, maxPrice]); // Re-fetch rooms whenever the price range changes
 
-
-
-
-
-
   return (
     <div className="container mx-auto py-8">
       <ReactTitle title="RH || Rooms" />
-      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">Rooms 🛌</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">
+        Rooms 🛌
+      </h1>
 
-
-
-       {/* Filter Section */}
-       <div className="mb-8 flex justify-center gap-4">
+      {/* Filter Section */}
+      <div className="mb-4 flex flex-wrap justify-center gap-4">
         <input
           type="number"
           placeholder="Min Price"
@@ -121,22 +111,20 @@ const RoomsPage = () => {
           onChange={(e) => setMaxPrice(e.target.value)}
           className="border p-2"
         />
-        <button
+        
+      </div>
+      <div className="flex my-2">
+      <button
           onClick={() => {
             setMinPrice(""); // Reset the filters
             setMaxPrice(""); // Reset the filters
           }}
-          className=" px-4 py-2 rounded bg-yellow-600 text-white font-sans btn"
+          className=" px-4 mx-auto py-2 rounded bg-yellow-600 text-white font-sans btn"
         >
           Reset
         </button>
       </div>
 
-
-
-
-
-      
       {rooms.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {rooms.map((room) => (
@@ -152,12 +140,18 @@ const RoomsPage = () => {
 
               {/* View Details Text (Visible only on hover) */}
               <div className="absolute rounded-lg inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="text-xl font-bold text-yellow-400">View Details</span>
+                <span className="text-xl font-bold text-yellow-400">
+                  View Details
+                </span>
               </div>
 
               <div className="p-4">
-                <h2 className="text-xl font-bold mb-2 font-sans text-yellow-600">{room.name}</h2>
-                <p className="text-gray-600 mb-1 font-mono">{room.price} per night</p>
+                <h2 className="text-xl font-bold mb-2 font-sans text-yellow-600">
+                  {room.name}
+                </h2>
+                <p className="text-gray-600 mb-1 font-mono">
+                  {room.price} per night
+                </p>
                 <p className="text-sm text-gray-500 mb-1">
                   {Array.isArray(room.reviews) ? room.reviews.length : 0}{" "}
                   Review(s)
@@ -190,7 +184,6 @@ const RoomsPage = () => {
                       <div>No reviews yet</div>
                     )}
                   </div>
-
                 </div>
               </div>
 

@@ -17,15 +17,18 @@ const GiveReview = ({ roomId }) => {
 
     try {
       setSubmitting(true); // Disable form during submission
-      const response = await axios.put("http://localhost:5000/api/rooms/review", {
-        roomId,
-        review: {
-          comment: reviewText,
-          rating: parseInt(rating, 10), // Convert rating to a number
-          reviewer: user?.displayName || "Anonymous", // Fetch displayName or fallback
-          timestamp: new Date().toISOString(), // Add current timestamp
-        },
-      });
+      const response = await axios.put(
+        "https://hotel-management-liart.vercel.app/api/rooms/review",
+        {
+          roomId,
+          review: {
+            comment: reviewText,
+            rating: parseInt(rating, 10), // Convert rating to a number
+            reviewer: user?.displayName || "Anonymous", // Fetch displayName or fallback
+            timestamp: new Date().toISOString(), // Add current timestamp
+          },
+        }
+      );
 
       if (response.data.success) {
         alert("Review submitted successfully!");

@@ -26,9 +26,7 @@ const AuthProvider = ({ children }) => {
   const [updateimgname, setUpdateImgname] = useState(false);
   const [redirectPath, setRedirectPath] = useState(null);
 
-
-  const [dataFetching,setDataFetching] = useState(true);
-
+  const [dataFetching, setDataFetching] = useState(true);
 
   // useEffect(() => {
   //   console.log("Redirect Path Updated:", redirectPath);
@@ -46,7 +44,6 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
-    
   };
 
   const signInGoogle = (email, password) => {
@@ -67,30 +64,34 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         const user = { email: currentUser.email };
 
-        axios.post('http://localhost:5000/jwt', user,{withCredentials: true})
-        .then(res => {
-          setLoading(false);
-          console.log('login',res.data)
-        })
-      }else{
-        axios.post('http://localhost:5000/logout',{},{
-          withCredentials: true
-        })
-        .then(res => {
-          console.log("logout", res.data);
-          setLoading(false);
-        })
-
+        axios
+          .post("https://hotel-management-liart.vercel.app/jwt", user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            setLoading(false);
+            console.log("login", res.data);
+          });
+      } else {
+        axios
+          .post(
+            "https://hotel-management-liart.vercel.app/logout",
+            {},
+            {
+              withCredentials: true,
+            }
+          )
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoading(false);
+          });
       }
-
     });
 
     return () => {
       unsubscribe();
     };
   }, [updateimgname]);
-
-
 
   const authInfo = {
     updateimgname,
@@ -106,8 +107,9 @@ const AuthProvider = ({ children }) => {
     logOut,
     redirectPath,
     setRedirectPath,
-    
-    dataFetching,setDataFetching
+
+    dataFetching,
+    setDataFetching,
   };
 
   return (

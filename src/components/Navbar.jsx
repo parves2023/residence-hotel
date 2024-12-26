@@ -48,9 +48,20 @@ const Navbar = () => {
                 My Bookings
               </NavLink>
             </li>
+            <li>
+            <NavLink to="/about" className="block p-2">
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className="block p-2">
+              contact Us
+            </NavLink>
+          </li>
           </ul>
         </div>
-        <a className="btn btn-ghost font-sans text-gray-600 text-2xl"><span className="text-yellow-600 font-bold font-sans">Residence</span>Hotel</a>
+        <a className="btn hidden md:block  btn-ghost font-sans text-gray-600 text-xl md:text-2xl"><span className="text-yellow-600 font-bold font-sans">Residence</span>Hotel</a>
+        <a className="btn flex md:hidden  btn-ghost font-sans text-gray-600 text-xl md:text-2xl"><span className="text-yellow-600 font-bold font-sans">R</span>H</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -70,6 +81,16 @@ const Navbar = () => {
               My Bookings
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/about" className="block p-2">
+              About Us
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" className="block p-2">
+              contact Us
+            </NavLink>
+          </li>
         </ul>
       </div>
 
@@ -85,7 +106,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-600"
+            className="px-4 font-semibold py-2 bg-yellow-600 font-sans hover:bg-yellow-700 text-white rounded"
           >
             Login Now
           </Link>
@@ -100,7 +121,7 @@ const Navbar = () => {
             alt="Profile"
             className="size-10 mx-auto rounded-full ring ring-yellow-300 text-center"
           />
-            <h2 className="text-xs font-serif font-extralight">Welcome {user?.displayName}</h2>
+            <h2 className="text-xs hidden md:block font-serif font-extralight">Welcome {user?.displayName}</h2>
             </div>
           
           </div>

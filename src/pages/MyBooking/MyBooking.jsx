@@ -21,28 +21,24 @@ const MyBooking = () => {
 
   const axiosSecure = useAxiosSecure();
 
- 
-
   useState(() => {}, []);
 
   useEffect(() => {
     const fetchBookings = async () => {
       try {
         // const response = await axios.get(
-        //   `http://localhost:5000/api/my-bookings/${userEmail}`,{
+        //   `https://hotel-management-liart.vercel.app/api/my-bookings/${userEmail}`,{
         //     withCredentials: true
         //   }
         // );
 
-        axiosSecure.get(`/api/my-bookings/${userEmail}`)
-        .then(res => setBookings(res.data));
-
+        axiosSecure
+          .get(`/api/my-bookings/${userEmail}`)
+          .then((res) => setBookings(res.data));
 
         // const response = axiosSecure.get(`/api/my-bookings/${userEmail}`);
         // console.log(response);
         // setBookings(response.data.data);
-
-
       } catch (error) {
         console.error("Error fetching bookings:", error);
       } finally {
@@ -69,10 +65,13 @@ const MyBooking = () => {
 
       if (result.isConfirmed) {
         // Proceed with cancellation
-        await axios.post("http://localhost:5000/api/cancel-booking", {
-          roomId,
-          email: userEmail,
-        });
+        await axios.post(
+          "https://hotel-management-liart.vercel.app/api/cancel-booking",
+          {
+            roomId,
+            email: userEmail,
+          }
+        );
 
         // Remove the canceled booking from state
         setBookings((prevBookings) =>
@@ -111,7 +110,7 @@ const MyBooking = () => {
     }
     console.log(selectedBooking, "this is missing here");
 
-    fetch("http://localhost:5000/api/update-booking", {
+    fetch("https://hotel-management-liart.vercel.app/api/update-booking", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -171,7 +170,9 @@ const MyBooking = () => {
   return (
     <div className="container mx-auto py-8">
       <ReactTitle title="RH || Booking" />
-      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">My Bookings</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center font-sans text-yellow-600">
+        My Bookings
+      </h1>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-300">
           <thead className="font-sans">

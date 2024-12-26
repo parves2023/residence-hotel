@@ -4,7 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { BallTriangle } from "react-loader-spinner";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading,redirectPath, setRedirectPath } = useContext(AuthContext);
+  const { user, loading, setRedirectPath } = useContext(AuthContext);
   const location = useLocation();
 
 // set private router

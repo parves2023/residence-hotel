@@ -66,12 +66,13 @@ const Slider = () => {
             {/* Typewriter Effect for Heading */}
             {currentIndex === index && (
               <h2 className="text-3xl md:text-5xl font-bold font-mono">
+                ||
                 <Typewriter
                   words={[banner.heading]} // Show only the current slide heading
                   
                   typeSpeed={100}
                   deleteSpeed={50}
-                />
+                />||
               </h2>
             )}
             <p className="mt-4 text-lg md:text-xl text-yellow-600 font-mono">

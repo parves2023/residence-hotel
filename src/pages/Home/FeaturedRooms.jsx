@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import axios from "axios";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router";
 import { motion } from "motion/react";
+import { BallTriangle } from "react-loader-spinner";
+
 
 function FeaturedRooms() {
   const [rooms, setRooms] = useState([]);
@@ -10,28 +12,44 @@ function FeaturedRooms() {
   // Fetch top-rated rooms from the backend
   useEffect(() => {
     const fetchTopRatedRooms = async () => {
+      
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/top-rated-rooms"
+          "https://hotel-management-liart.vercel.app/api/top-rated-rooms"
         );
         const data = response.data;
 
         // Ensure the response is an array
         if (Array.isArray(data)) {
           setRooms(data);
+          // setLoading(false);
         } else {
           console.error("Expected an array, but got:", data);
           setRooms([]); // Fallback to an empty array
+          // setLoading(false);
         }
       } catch (error) {
         console.error("Error fetching top-rated rooms:", error);
         setRooms([]); // Fallback to an empty array in case of an error
+        setLoading(false);
       }
     };
 
     fetchTopRatedRooms();
   }, []);
 
+
+  
+
+
+
+
+  
+  
+  
+  
+  
+  
   // Function to render star ratings
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
@@ -112,15 +130,19 @@ function FeaturedRooms() {
                     alt={room.name}
                     className="w-full h-40 object-cover rounded-md mb-4"
                   />
-                  <h3 className="text-lg font-semibold font-sans text-yellow-600">{room.name}</h3>
+                  <h3 className="text-lg font-semibold font-sans text-yellow-600">
+                    {room.name}
+                  </h3>
                   <p className="text-gray-500 font-mono">{room.description}</p>
-                  <p className=" font-bold my-2  text-yellow-600">{room.price}</p>
-                              <div className="flex items-center mt-2">
-                                {renderStars(room?.rating)}
-                                <span className="ml-2 text-gray-600">
-                                  {room?.rating.toFixed(1)}
-                                </span>
-                              </div>
+                  <p className=" font-bold my-2  text-yellow-600">
+                    {room.price}
+                  </p>
+                  <div className="flex items-center mt-2">
+                    {renderStars(room?.rating)}
+                    <span className="ml-2 text-gray-600">
+                      {room?.rating.toFixed(1)}
+                    </span>
+                  </div>
                   <Link
                     to={`/rooms/${room._id}`}
                     className="text-white bg-yellow-600 hover:bg-yellow-700 rounded-md px-4 py-2 mt-3 inline-block"
@@ -128,7 +150,6 @@ function FeaturedRooms() {
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
-
                     >
                       View Details
                     </motion.div>
