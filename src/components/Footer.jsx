@@ -72,7 +72,7 @@ const Footer = () => {
         {/* Subscribe Section */}
         <div>
           <h3 className="text-lg font-semibold text-yellow-600">Stay Updated</h3>
-          <p className="mt-4 text-gray-300">
+          <p className="mt-4 text-gray-300 font-mono">
             Subscribe to get the latest hotel updates, news, and offers.
           </p>
           <div className="mt-6">

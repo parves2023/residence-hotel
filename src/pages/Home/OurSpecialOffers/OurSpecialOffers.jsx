@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const OurSpecialOffers = () => {
   return (
-    <section className="bg-gradient-to-r from-blue-500 to-purple-600 py-20 px-6 text-white">
+    <section className="bg-gradient-to-r rounded-2xl  from-[#b5be7e] to-[#264e1d] py-20 px-6 text-white">
       <motion.div
         className="max-w-7xl mx-auto text-center"
         initial={{ opacity: 0 }}
