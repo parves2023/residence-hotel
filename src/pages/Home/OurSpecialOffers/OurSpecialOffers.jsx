@@ -12,7 +12,7 @@ const OurSpecialOffers = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-4xl font-bold mb-8">Special Offers & Promotions</h2>
+        <h2 className="text-4xl font-bold mb-8 font-sans text-yellow-500">Special Offers & Promotions</h2>
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={{ opacity: 0 }}
@@ -30,10 +30,10 @@ const OurSpecialOffers = () => {
               className="w-full h-48 object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold mb-2">50% Off This Month</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 font-mono mb-4">
               Book now and save 50% on all bookings this month. Limited-time offer!
             </p>
-            <button className="bg-blue-600 px-4 py-2 rounded-full text-white hover:bg-blue-700 transition duration-300">
+            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
               Grab This Deal
             </button>
           </motion.div>
@@ -49,10 +49,10 @@ const OurSpecialOffers = () => {
               className="w-full h-48 object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold mb-2">Free Breakfast With Stay</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 font-mono mb-4">
               Enjoy a complimentary breakfast every morning when you book your stay with us.
             </p>
-            <button className="bg-blue-600 px-4 py-2 rounded-full text-white hover:bg-blue-700 transition duration-300">
+            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
               Book Now
             </button>
           </motion.div>
@@ -68,10 +68,10 @@ const OurSpecialOffers = () => {
               className="w-full h-48 object-cover rounded-md mb-4"
             />
             <h3 className="text-xl font-semibold mb-2">Stay 3 Nights, Get 1 Free</h3>
-            <p className="text-gray-600 mb-4">
+            <p className="text-gray-600 font-mono mb-4">
               Book 3 nights and get 1 night free. Perfect for a long getaway.
             </p>
-            <button className="bg-blue-600 px-4 py-2 rounded-full text-white hover:bg-blue-700 transition duration-300">
+            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
               Book Your Stay
             </button>
           </motion.div>

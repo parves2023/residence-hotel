@@ -17,7 +17,7 @@ const ExploreAmenities = () => {
     <section className="py-16 bg-white">
       <div className="container mx-auto">
         <motion.h2
-          className="text-3xl font-bold text-center mb-8"
+          className="text-3xl font-bold text-center mb-8 font-sans text-yellow-600"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -41,7 +41,7 @@ const ExploreAmenities = () => {
                 className="w-full h-40 object-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <h3 className="text-white text-xl font-semibold">
+                <h3 className=" text-xl font-semibold font-sans text-yellow-600">
                   {amenity.title}
                 </h3>
               </div>
