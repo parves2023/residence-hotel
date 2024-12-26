@@ -5,7 +5,7 @@ const Footer = () => {
         {/* About Section */}
         <div className="flex flex-col justify-between">
           <h2 className="text-4xl font-bold">
-            Residence <span className="text-yellow-300">Hotel</span>
+            Residence <span className="text-yellow-600">Hotel</span>
           </h2>
           <p className="mt-3 text-gray-300">
             Caribbean Ct, Haymarket, Virginia (VA). Your trusted partner for
@@ -36,7 +36,7 @@ const Footer = () => {
 
         {/* Hotel Types Section */}
         <div>
-          <h3 className="text-lg font-semibold text-yellow-300">Hotel Types</h3>
+          <h3 className="text-lg font-semibold text-yellow-600">Hotel Types</h3>
           <ul className="mt-4 space-y-2 text-gray-300">
             {["Tourist ", "Work ", "Student ", "Business ", "Family "].map(
               (type, index) => (
@@ -53,7 +53,7 @@ const Footer = () => {
 
         {/* Quick Links Section */}
         <div>
-          <h3 className="text-lg font-semibold text-yellow-300">Quick Links</h3>
+          <h3 className="text-lg font-semibold text-yellow-600">Quick Links</h3>
           <ul className="mt-4 space-y-2 text-gray-300">
             {[
               " Application Process",
@@ -71,9 +71,9 @@ const Footer = () => {
 
         {/* Subscribe Section */}
         <div>
-          <h3 className="text-lg font-semibold text-yellow-300">Stay Updated</h3>
+          <h3 className="text-lg font-semibold text-yellow-600">Stay Updated</h3>
           <p className="mt-4 text-gray-300">
-            Subscribe to get the latest visa updates, news, and offers.
+            Subscribe to get the latest hotel updates, news, and offers.
           </p>
           <div className="mt-6">
             <input
@@ -91,7 +91,7 @@ const Footer = () => {
       <div className="mt-10 bg-black h-16 text-center text-gray-400">
         <p>
           © 2024{" "}
-          <span className="text-yellow-300 font-semibold">VisaPilot</span>. Made
+          <span className="text-yellow-600 font-semibold">Residential Hotel</span>. Made
           with ❤ by{" "}
           <a
             href="https://www.facebook.com/profile.php?id=100055235052516"

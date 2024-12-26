@@ -29,8 +29,8 @@ const TestimonialCarousel = ({ reviews }) => {
                 key={index}
                 className="bg-gray-100 min-h-40 p-4 rounded-lg shadow-md w-full  transform transition-transform duration-500 ease-in-out hover:scale-105"
               >
-                <p className="text-lg font-medium">{review.comment}</p>
-                <p className="text-sm text-gray-500 mt-2">- {review.reviewer}</p>
+                <p className="text-lg font-medium font-mono">{review.comment}</p>
+                <p className="text-sm text-gray-500 mt-2 font-sans" >- {review.reviewer}</p>
                 <p className="mt-2 text-yellow-500">
                   {"★".repeat(review.rating)}
                   {"☆".repeat(5 - review.rating)}
@@ -42,13 +42,13 @@ const TestimonialCarousel = ({ reviews }) => {
           {/* Custom Navigation Buttons */}
           <div className="flex justify-between mt-6">
             <button
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              className="px-4 py-2 bg-yellow-600 text-white font-sans rounded hover:bg-gray-700"
               onClick={() => sliderRef.current.slickPrev()} // Go to the previous slide
             >
               Previous
             </button>
             <button
-              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+              className="px-4 py-2 bg-yellow-600 text-white font-sans  rounded hover:bg-gray-700"
               onClick={() => sliderRef.current.slickNext()} // Go to the next slide
             >
               Next

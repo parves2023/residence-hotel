@@ -27,7 +27,7 @@ const ReviewsPage = () => {
 
   return (
     <div className="my-8">
-      <h2 className="text-2xl font-bold text-center mb-6">What Our Guests Say</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 bg-yellow-600 font-mono text-white py-3 rounded-2xl">What Our Guests Say</h2>
       <TestimonialCarousel reviews={reviews} />
     </div>
   );

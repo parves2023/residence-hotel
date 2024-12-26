@@ -18,8 +18,8 @@ function ContactSection() {
       </div>
       <div className="container px-5 py-24 mx-auto flex">
         <div className="lg:w-1/3 md:w-1/2 bg-white rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative  shadow-md">
-          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Feedback</h2>
-          <p className="leading-relaxed mb-5 text-gray-600">
+          <h2 className="text-gray-900 text-lg mb-1 font-medium title-font font-sans">Feedback</h2>
+          <p className="leading-relaxed mb-5 text-gray-600 font-mono">
           We value your feedback! Please feel free to drop us a message for any queries, suggestions, or comments.
           </p>
           <div className="relative mb-4">
@@ -43,10 +43,10 @@ function ContactSection() {
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+          <button className="text-white bg-yellow-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded text-lg">
           Send Feedback
           </button>
-          <p className="text-xs text-gray-500 mt-3">
+          <p className="text-xs text-gray-500 mt-3 font-mono">
           Your feedback helps us improve our service. Thank you!.
           </p>
         </div>
