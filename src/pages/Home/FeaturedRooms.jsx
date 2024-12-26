@@ -93,7 +93,7 @@ function FeaturedRooms() {
   };
 
   return (
-    <section className="text-gray-600 body-font py-24">
+    <section className="text-gray-600 body-font py-4">
       <div className="container px-5 mx-auto text-center mb-12">
         <motion.h2
           initial={{ scale: 1 }} // Initial scale
