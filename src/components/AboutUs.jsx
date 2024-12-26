@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import ExploreAmenities from "../pages/Home/ExploreAmenities";
+import ReactTitle from "react-helmet";
 
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
+      <ReactTitle title="RH || About Us"/>
       <div className="container mx-auto max-w-4xl text-center">
         <motion.h1
           className="text-4xl font-bold mb-4 text-yellow-600 font-sans"
