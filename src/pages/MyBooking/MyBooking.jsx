@@ -32,8 +32,9 @@ const MyBooking = () => {
         //   }
         // );
 
+        // .get(`/api/my-bookings/parvesmosarof32@gmail.com`)
         axiosSecure
-          .get(`/api/my-bookings/${userEmail}`)
+        .get(`/api/my-bookings/${userEmail}`)
           .then((res) => setBookings(res.data));
 
         // const response = axiosSecure.get(`/api/my-bookings/${userEmail}`);
