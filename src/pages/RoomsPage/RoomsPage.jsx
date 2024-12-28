@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import icons
 import ReactTitle from "react-helmet";
+import { BallTriangle } from "react-loader-spinner";
 
 // all rooms page
 
 const RoomsPage = () => {
   const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -74,6 +76,7 @@ const RoomsPage = () => {
 
         // Ensure data is an array
         if (Array.isArray(data)) {
+          setLoading(false);
           setRooms(data);
         } else {
           console.error("Expected an array, but got:", data);
@@ -87,6 +90,25 @@ const RoomsPage = () => {
 
     fetchRooms();
   }, [minPrice, maxPrice]); // Re-fetch rooms whenever the price range changes
+
+ 
+    if (loading) {
+          return (
+            <div className="flex justify-center items-start mt-10 h-screen">
+              <BallTriangle
+                height={100}
+                width={100}
+                radius={5}
+                color="#4fa94d"
+                ariaLabel="ball-triangle-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </div>
+          );
+        }
+
 
   return (
     <div className="container mx-auto py-8">

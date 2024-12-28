@@ -7,6 +7,7 @@ const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -14,6 +15,7 @@ const ReviewsPage = () => {
         const response = await axios.get(
           "https://hotel-management-liart.vercel.app/api/reviews"
         );
+        setLoading(false);
         setReviews(response.data); // Set the fetched reviews
       } catch (err) {
         setError("Failed to fetch reviews. Please try again later.");
@@ -26,22 +28,23 @@ const ReviewsPage = () => {
   }, []);
 
   
-    if (loading) {
-      return (
-        <div className="flex justify-center items-start mt-10 h-screen">
-          <BallTriangle
-            height={100}
-            width={100}
-            radius={5}
-            color="#4fa94d"
-            ariaLabel="ball-triangle-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-          />
-        </div>
-      );
-    }
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start mt-10 h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
+  
 
   if (error) return <p className="text-red-500">{error}</p>;
 

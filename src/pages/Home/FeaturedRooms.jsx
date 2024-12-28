@@ -8,6 +8,7 @@ import { BallTriangle } from "react-loader-spinner";
 
 function FeaturedRooms() {
   const [rooms, setRooms] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // Fetch top-rated rooms from the backend
   useEffect(() => {
@@ -21,6 +22,7 @@ function FeaturedRooms() {
 
         // Ensure the response is an array
         if (Array.isArray(data)) {
+          setLoading(false);
           setRooms(data);
           // setLoading(false);
         } else {
@@ -37,6 +39,24 @@ function FeaturedRooms() {
 
     fetchTopRatedRooms();
   }, []);
+
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start mt-10 h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
 
 
   

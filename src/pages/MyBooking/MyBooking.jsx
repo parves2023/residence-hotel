@@ -7,6 +7,7 @@ import ReactTitle from "react-helmet";
 import Swal from "sweetalert2";
 import moment from "moment";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { BallTriangle } from "react-loader-spinner";
 
 // my booking page
 
@@ -35,15 +36,16 @@ const MyBooking = () => {
         // .get(`/api/my-bookings/parvesmosarof32@gmail.com`)
         axiosSecure
         .get(`/api/my-bookings/${userEmail}`)
-          .then((res) => setBookings(res.data));
+          .then((res) => {
+            setLoading(false)
+            setBookings(res.data)
+          });
 
         // const response = axiosSecure.get(`/api/my-bookings/${userEmail}`);
         // console.log(response);
         // setBookings(response.data.data);
       } catch (error) {
         console.error("Error fetching bookings:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -161,7 +163,20 @@ const MyBooking = () => {
   };
 
   if (loading) {
-    return <p className="text-center">Loading your bookings...</p>;
+    return (
+      <div className="flex justify-center items-start mt-10 h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
   }
 
   if (bookings.length === 0) {

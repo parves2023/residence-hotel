@@ -8,6 +8,7 @@ import ReactTitle from "react-helmet";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { BallTriangle } from "react-loader-spinner";
 
 //room detaisl page
 
@@ -86,7 +87,23 @@ const RoomDetailsPage = () => {
     }
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start mt-10 h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#4fa94d"
+          ariaLabel="ball-triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
+
   if (error) return <div>{error}</div>;
 
   return (
