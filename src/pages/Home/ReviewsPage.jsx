@@ -7,14 +7,11 @@ const ReviewsPage = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(
-          "https://hotel-management-liart.vercel.app/api/reviews"
-        );
+        const response = await axios.get("http://localhost:5000/api/reviews");
         setLoading(false);
         setReviews(response.data); // Set the fetched reviews
       } catch (err) {
@@ -27,7 +24,6 @@ const ReviewsPage = () => {
     fetchReviews();
   }, []);
 
-  
   if (loading) {
     return (
       <div className="flex justify-center items-start mt-10 h-screen">
@@ -44,7 +40,6 @@ const ReviewsPage = () => {
       </div>
     );
   }
-
 
   if (error) return <p className="text-red-500">{error}</p>;
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa"; // Import icons
+import { FaStar, FaStarHalfAlt, FaRegStar, FaSearch } from "react-icons/fa"; // Import icons
 import ReactTitle from "react-helmet";
 import { BallTriangle } from "react-loader-spinner";
 
@@ -13,6 +13,8 @@ const RoomsPage = () => {
 
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+
+  const [search, setSearch] = useState('');
 
   // Function to render star ratings
   const renderStars = (rating) => {
@@ -41,7 +43,7 @@ const RoomsPage = () => {
   // useEffect(() => {
   //   const fetchRooms = async () => {
   //     try {
-  //       const response = await axios.get("https://hotel-management-liart.vercel.app/api/rooms"); // Adjust API endpoint
+  //       const response = await axios.get("http://localhost:5000/api/rooms"); // Adjust API endpoint
   //       const data = response.data;
 
   //       // Ensure data is an array
@@ -70,7 +72,7 @@ const RoomsPage = () => {
         if (maxPrice) query.append("maxPrice", maxPrice);
 
         const response = await axios.get(
-          `https://hotel-management-liart.vercel.app/api/rooms?${query.toString()}`
+          `http://localhost:5000/api/rooms?${query.toString()}&search=${search}`
         );
         const data = response.data;
 
@@ -89,26 +91,24 @@ const RoomsPage = () => {
     };
 
     fetchRooms();
-  }, [minPrice, maxPrice]); // Re-fetch rooms whenever the price range changes
+  }, [minPrice, maxPrice,search]); // Re-fetch rooms whenever the price range changes
 
- 
-    if (loading) {
-          return (
-            <div className="flex justify-center items-start mt-10 h-screen">
-              <BallTriangle
-                height={100}
-                width={100}
-                radius={5}
-                color="#d49f0f"
-                ariaLabel="ball-triangle-loading"
-                wrapperStyle={{}}
-                wrapperClass=""
-                visible={true}
-              />
-            </div>
-          );
-        }
-
+  if (loading) {
+    return (
+      <div className="flex justify-center items-start mt-10 h-screen">
+        <BallTriangle
+          height={100}
+          width={100}
+          radius={5}
+          color="#d49f0f"
+          ariaLabel="ball-triangle-loading"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="container mx-auto py-8">
@@ -118,33 +118,46 @@ const RoomsPage = () => {
       </h1>
 
       {/* Filter Section */}
-      <div className="mb-4 flex flex-wrap justify-center gap-4">
-        <input
-          type="number"
-          placeholder="Min Price"
-          value={minPrice}
-          onChange={(e) => setMinPrice(e.target.value)}
-          className="border p-2"
-        />
-        <input
-          type="number"
-          placeholder="Max Price"
-          value={maxPrice}
-          onChange={(e) => setMaxPrice(e.target.value)}
-          className="border p-2"
-        />
-        
-      </div>
-      <div className="flex my-2">
-      <button
-          onClick={() => {
-            setMinPrice(""); // Reset the filters
-            setMaxPrice(""); // Reset the filters
-          }}
-          className=" px-4 mx-auto py-2 rounded bg-yellow-600 text-white font-sans btn"
-        >
-          Reset
-        </button>
+      <div className="flex md:flex-row flex-col items-center justify-center gap-5 ">
+        <div className="mb-4 flex flex-col  w-5/12 border p-4 flex-wrap justify-center gap-4">
+          <input
+            type="number"
+            placeholder="Min Price"
+            value={minPrice}
+            onChange={(e) => setMinPrice(e.target.value)}
+            className="border p-2"
+          />
+          <input
+            type="number"
+            placeholder="Max Price"
+            value={maxPrice}
+            onChange={(e) => setMaxPrice(e.target.value)}
+            className="border p-2"
+          />
+          <button
+            onClick={() => {
+              setMinPrice(""); // Reset the filters
+              setMaxPrice(""); // Reset the filters
+            }}
+            className=" px-4 w-full mx-auto py-2 rounded bg-yellow-600 text-white font-sans btn"
+          >
+            Reset
+          </button>
+        </div>
+        <div className="flex flex-col gap-3 w-5/12 border p-4">
+          <div className="flex items-center gap-2 flex-row-reverse p-2">
+            <FaSearch className="text-gray-400 text-3xl "></FaSearch>
+          <input
+            onKeyUp={(e)=>{
+              setSearch(e.target.value)
+            }}
+            type="text"
+            placeholder="Search  by name"
+            className="input w-full p-8 border-2 bg-gray-100"
+          />
+          </div>
+          <button className="btn btn-warning bg-yellow-600 text-white">Search</button>
+        </div>
       </div>
 
       {rooms.length > 0 ? (

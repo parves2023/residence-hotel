@@ -18,7 +18,7 @@ const GiveReview = ({ roomId }) => {
     try {
       setSubmitting(true); // Disable form during submission
       const response = await axios.put(
-        "https://hotel-management-liart.vercel.app/api/rooms/review",
+        "http://localhost:5000/api/rooms/review",
         {
           roomId,
           review: {

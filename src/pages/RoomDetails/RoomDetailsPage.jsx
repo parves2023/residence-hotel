@@ -27,7 +27,7 @@ const RoomDetailsPage = () => {
     const fetchRoomDetails = async () => {
       try {
         const response = await axios.get(
-          `https://hotel-management-liart.vercel.app/api/rooms/${id}`
+          `http://localhost:5000/api/rooms/${id}`
         );
         setRoom(response.data);
       } catch (error) {
@@ -54,14 +54,11 @@ const RoomDetailsPage = () => {
     }
 
     try {
-      await axios.post(
-        `https://hotel-management-liart.vercel.app/api/book-room`,
-        {
-          roomId: id,
-          date: bookingDate,
-          email: user?.email,
-        }
-      );
+      await axios.post(`http://localhost:5000/api/book-room`, {
+        roomId: id,
+        date: bookingDate,
+        email: user?.email,
+      });
 
       // Update room availability after booking
       setRoom((prevRoom) => ({

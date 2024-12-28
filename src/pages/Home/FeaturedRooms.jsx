@@ -1,10 +1,9 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { Link } from "react-router";
 import { motion } from "motion/react";
 import { BallTriangle } from "react-loader-spinner";
-
 
 function FeaturedRooms() {
   const [rooms, setRooms] = useState([]);
@@ -13,10 +12,9 @@ function FeaturedRooms() {
   // Fetch top-rated rooms from the backend
   useEffect(() => {
     const fetchTopRatedRooms = async () => {
-      
       try {
         const response = await axios.get(
-          "https://hotel-management-liart.vercel.app/api/top-rated-rooms"
+          "http://localhost:5000/api/top-rated-rooms"
         );
         const data = response.data;
 
@@ -40,7 +38,6 @@ function FeaturedRooms() {
     fetchTopRatedRooms();
   }, []);
 
-
   if (loading) {
     return (
       <div className="flex justify-center items-start mt-10 h-screen">
@@ -58,18 +55,6 @@ function FeaturedRooms() {
     );
   }
 
-
-  
-
-
-
-
-  
-  
-  
-  
-  
-  
   // Function to render star ratings
   const renderStars = (rating) => {
     const fullStars = Math.floor(rating);
