@@ -14,7 +14,7 @@ const RoomsPage = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   // Function to render star ratings
   const renderStars = (rating) => {
@@ -43,7 +43,7 @@ const RoomsPage = () => {
   // useEffect(() => {
   //   const fetchRooms = async () => {
   //     try {
-  //       const response = await axios.get("http://localhost:5000/api/rooms"); // Adjust API endpoint
+  //       const response = await axios.get("https://hotel-management-liart.vercel.app/api/rooms"); // Adjust API endpoint
   //       const data = response.data;
 
   //       // Ensure data is an array
@@ -72,7 +72,7 @@ const RoomsPage = () => {
         if (maxPrice) query.append("maxPrice", maxPrice);
 
         const response = await axios.get(
-          `http://localhost:5000/api/rooms?${query.toString()}&search=${search}`
+          `https://hotel-management-liart.vercel.app/api/rooms?${query.toString()}&search=${search}`
         );
         const data = response.data;
 
@@ -91,7 +91,7 @@ const RoomsPage = () => {
     };
 
     fetchRooms();
-  }, [minPrice, maxPrice,search]); // Re-fetch rooms whenever the price range changes
+  }, [minPrice, maxPrice, search]); // Re-fetch rooms whenever the price range changes
 
   if (loading) {
     return (
@@ -147,16 +147,18 @@ const RoomsPage = () => {
         <div className="flex flex-col gap-3 w-5/12 border p-4">
           <div className="flex items-center gap-2 flex-row-reverse p-2">
             <FaSearch className="text-gray-400 text-3xl "></FaSearch>
-          <input
-            onKeyUp={(e)=>{
-              setSearch(e.target.value)
-            }}
-            type="text"
-            placeholder="Search  by name"
-            className="input w-full p-8 border-2 bg-gray-100"
-          />
+            <input
+              onKeyUp={(e) => {
+                setSearch(e.target.value);
+              }}
+              type="text"
+              placeholder="Search  by name"
+              className="input w-full p-8 border-2 bg-gray-100"
+            />
           </div>
-          <button className="btn btn-warning bg-yellow-600 text-white">Search</button>
+          <button className="btn btn-warning bg-yellow-600 text-white">
+            Search
+          </button>
         </div>
       </div>
 

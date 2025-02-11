@@ -14,7 +14,7 @@ function FeaturedRooms() {
     const fetchTopRatedRooms = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/top-rated-rooms"
+          "https://hotel-management-liart.vercel.app/api/top-rated-rooms"
         );
         const data = response.data;
 

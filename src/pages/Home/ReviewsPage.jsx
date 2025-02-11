@@ -11,7 +11,9 @@ const ReviewsPage = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/reviews");
+        const response = await axios.get(
+          "https://hotel-management-liart.vercel.app/api/reviews"
+        );
         setLoading(false);
         setReviews(response.data); // Set the fetched reviews
       } catch (err) {

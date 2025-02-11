@@ -28,7 +28,7 @@ const MyBooking = () => {
     const fetchBookings = async () => {
       try {
         // const response = await axios.get(
-        //   `http://localhost:5000/api/my-bookings/${userEmail}`,{
+        //   `https://hotel-management-liart.vercel.app/api/my-bookings/${userEmail}`,{
         //     withCredentials: true
         //   }
         // );
@@ -66,10 +66,13 @@ const MyBooking = () => {
 
       if (result.isConfirmed) {
         // Proceed with cancellation
-        await axios.post("http://localhost:5000/api/cancel-booking", {
-          roomId,
-          email: userEmail,
-        });
+        await axios.post(
+          "https://hotel-management-liart.vercel.app/api/cancel-booking",
+          {
+            roomId,
+            email: userEmail,
+          }
+        );
 
         // Remove the canceled booking from state
         setBookings((prevBookings) =>
@@ -108,7 +111,7 @@ const MyBooking = () => {
     }
     console.log(selectedBooking, "this is missing here");
 
-    fetch("http://localhost:5000/api/update-booking", {
+    fetch("https://hotel-management-liart.vercel.app/api/update-booking", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
