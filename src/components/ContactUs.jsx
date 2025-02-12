@@ -2,7 +2,29 @@ import { motion } from "framer-motion";
 import ContactSection from "../pages/Home/ContactSection";
 import ReactTitle from "react-helmet";
 
+import Swal from 'sweetalert2';
+
+
+
+
 const ContactUs = () => {
+  
+
+  const handleContactSubmit = () => {
+    // Perform your form submission logic here (e.g., API call)
+  
+    // On success:
+    Swal.fire({
+      icon: 'success',
+      title: 'Message Sent!',
+      text: 'Your message has been sent successfully.',
+      showConfirmButton: false,
+      timer: 3000, // Auto close after 3 seconds
+    });
+  };
+  
+  
+
   return (
     <div className="min-h-screen bg-gray-100 p-6 text-gray-800">
       <ReactTitle title="RH || Contact"/>
@@ -25,6 +47,10 @@ const ContactUs = () => {
         </motion.p>
         <motion.form
           className="bg-white shadow-lg rounded-lg p-6"
+          onSubmit={(e) => {
+            e.preventDefault(); // Prevents the default form submission behavior
+            handleContactSubmit();
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -65,6 +91,7 @@ const ContactUs = () => {
           <div className="text-center">
             <motion.button
               type="submit"
+              
               className="bg-yellow-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-yellow-500 transition-all duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}

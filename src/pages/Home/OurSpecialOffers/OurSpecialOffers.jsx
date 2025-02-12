@@ -1,9 +1,23 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Swal from 'sweetalert2';
 
 
 
 const OurSpecialOffers = () => {
+
+
+  const handleNotAvailable = () => {
+    Swal.fire({
+      icon: 'info',
+      title: 'Not Available Right Now',
+      text: 'This deal is currently unavailable. Please check back later.',
+      confirmButtonText: 'Okay',
+      confirmButtonColor: '#F59E0B', // Matches Tailwind's yellow-600
+    });
+  };
+
+  
   return (
     <section className="bg-gradient-to-r rounded-2xl  from-[#b5be7e] to-[#264e1d] py-20 px-6 text-white">
       <motion.div
@@ -21,7 +35,7 @@ const OurSpecialOffers = () => {
         >
           {/* Offer 1 */}
           <motion.div
-            className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -33,14 +47,17 @@ const OurSpecialOffers = () => {
             <p className="text-gray-600 font-mono mb-4">
               Book now and save 50% on all bookings this month. Limited-time offer!
             </p>
-            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
-              Grab This Deal
-            </button>
+            <button 
+  onClick={handleNotAvailable} 
+  className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300"
+>
+  Grab This Deal
+</button>
           </motion.div>
 
           {/* Offer 2 */}
           <motion.div
-            className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -52,14 +69,16 @@ const OurSpecialOffers = () => {
             <p className="text-gray-600 font-mono mb-4">
               Enjoy a complimentary breakfast every morning when you book your stay with us.
             </p>
-            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
+            <button 
+            onClick={handleNotAvailable} 
+            className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
               Book Now
             </button>
           </motion.div>
 
           {/* Offer 3 */}
           <motion.div
-            className="bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -71,7 +90,9 @@ const OurSpecialOffers = () => {
             <p className="text-gray-600 font-mono mb-4">
               Book 3 nights and get 1 night free. Perfect for a long getaway.
             </p>
-            <button className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
+            <button 
+            onClick={handleNotAvailable} 
+            className="bg-yellow-600 font-mono font-semibold px-4 py-2 rounded-full text-white hover:bg-yellow-700 transition duration-300">
               Book Your Stay
             </button>
           </motion.div>

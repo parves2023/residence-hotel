@@ -1,4 +1,32 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+import Swal from "sweetalert2";
+
+
 const Footer = () => {
+  const [email, setEmail] = useState("");
+
+  const handleSubscribe = () => {
+    if (email) {
+      // Show success message using SweetAlert2
+      Swal.fire({
+        icon: "success",
+        title: "Subscribed successfully!",
+        text: `Thank you for subscribing with ${email}`,
+        confirmButtonText: "OK",
+      });
+    } else {
+      // Show error message if email is empty
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please enter a valid email address!",
+      });
+    }
+  };
+
+
   return (
     <footer className="bg-[#3f583a] text-white pt-12">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-6 md:px-10">
@@ -13,10 +41,10 @@ const Footer = () => {
           </p>
           <p className="mt-3">
             <span className="font-semibold">Email:</span>{" "}
-            support@Hotel.com
+            parvesmosarof2@gmail.com
           </p>
           <p>
-            <span className="font-semibold">Phone:</span> +1 800-555-1234
+            <span className="font-semibold">Phone:</span> 01516502364
           </p>
           <div className="flex gap-4 mt-4">
             <a href="#" className="text-gray-300 hover:text-yellow-400">
@@ -36,63 +64,95 @@ const Footer = () => {
 
         {/* Hotel Types Section */}
         <div>
-          <h3 className="text-lg font-semibold text-yellow-600">Hotel Types</h3>
-          <ul className="mt-4 space-y-2 text-gray-300">
-            {["Tourist ", "Work ", "Student ", "Business ", "Family "].map(
-              (type, index) => (
-                <li
-                  key={index}
-                  className="hover:text-yellow-400 cursor-pointer"
-                >
-                  {type}
-                </li>
-              )
-            )}
-          </ul>
-        </div>
-
-        {/* Quick Links Section */}
-        <div>
-          <h3 className="text-lg font-semibold text-yellow-600">Quick Links</h3>
+          <h3 className="text-lg font-semibold text-yellow-600">
+            Other Hotel Types
+          </h3>
           <ul className="mt-4 space-y-2 text-gray-300">
             {[
-              " Application Process",
-              "Required Documents",
-              " Fees",
-              " Status Check",
-              "FAQs",
-            ].map((link, index) => (
-              <li key={index} className="hover:text-yellow-400 cursor-pointer">
-                {link}
+              {
+                type: "Tourist",
+                url: "https://www.tripadvisor.com/TravelersChoice-Hotels-cTop-g1",
+              },
+              { type: "Work", url: "https://www.marriott.com" },
+              { type: "Student", url: "https://www.hostelworld.com" },
+              { type: "Business", url: "https://www.hilton.com" },
+              { type: "Family", url: "https://www.choicehotels.com" },
+            ].map((item, index) => (
+              <li key={index}>
+                <a
+                  href={item.url}
+                  target="_blank" // Opens the link in a new tab
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 cursor-pointer"
+                >
+                  {item.type}
+                </a>
               </li>
             ))}
           </ul>
         </div>
 
+
+
+
+{/* Quick Links Section */}
+<div>
+  <h3 className="text-lg font-semibold text-yellow-600">Quick Links</h3>
+  <ul className="mt-1 space-y-0 text-gray-300">
+    {[
+      { name: "Home", path: "/" },
+      { name: "Rooms", path: "/rooms" },
+      { name: "My Bookings", path: "/bookings" },
+      { name: "About Us", path: "/about" },
+      { name: "Contact Us", path: "/contact" },
+    ].map((link, index) => (
+      <li key={index}>
+        <Link
+          to={link.path}
+          className="block p-2 hover:text-yellow-400 cursor-pointer"
+        >
+          {link.name}
+        </Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
+
+
         {/* Subscribe Section */}
         <div>
-          <h3 className="text-lg font-semibold text-yellow-600">Stay Updated</h3>
+          <h3 className="text-lg font-semibold text-yellow-600">
+            Stay Updated
+          </h3>
           <p className="mt-4 text-gray-300 font-mono">
             Subscribe to get the latest hotel updates, news, and offers.
           </p>
           <div className="mt-6">
             <input
-              type="email"
-              placeholder="Your email address"
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:ring-2 focus:ring-yellow-500"
-            />
-            <button className="w-full mt-4 px-4 py-2 bg-yellow-700 text-white rounded-md hover:bg-yellow-600">
-              Subscribe Now
-            </button>
+        type="email"
+        placeholder="Your email address"
+        className="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-md focus:ring-2 focus:ring-yellow-500"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button
+        onClick={handleSubscribe}
+        className="w-full mt-4 px-4 py-2 bg-yellow-700 text-white rounded-md hover:bg-yellow-600"
+      >
+        Subscribe Now
+      </button>
           </div>
         </div>
       </div>
 
-      <div className="mt-10 bg-black h-16 text-center text-gray-400">
+      <div className="mt-10 pt-3 bg-black h-10 text-center text-gray-400">
         <p>
           © 2024{" "}
-          <span className="text-yellow-600 font-semibold">Residential Hotel</span>. Made
-          with ❤ by{" "}
+          <span className="text-yellow-600 font-semibold">
+            Residential Hotel
+          </span>
+          . Made with ❤ by{" "}
           <a
             href="https://www.facebook.com/profile.php?id=100055235052516"
             className="text-blue-400 hover:underline"

@@ -1,6 +1,20 @@
 import React from 'react';
+import Swal from 'sweetalert2';
+
 
 function ContactSection() {
+
+
+  const handleSendFeedback = () => {
+    Swal.fire({
+      icon: 'success',
+      title: 'Message send successfully',
+      text: 'Your message sent successfully. Please check back later.',
+      confirmButtonText: 'Okay',
+      confirmButtonColor: '#F59E0B', // Matches Tailwind's yellow-600
+    });
+  };
+  
   return (
     <section className="text-gray-600 body-font relative">
       <div className="absolute inset-0 bg-gray-300">
@@ -43,7 +57,9 @@ function ContactSection() {
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
             ></textarea>
           </div>
-          <button className="text-white bg-yellow-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded text-lg">
+          <button
+          onClick={handleSendFeedback} 
+          className="text-white bg-yellow-600 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-700 rounded text-lg">
           Send Feedback
           </button>
           <p className="text-xs text-gray-500 mt-3 font-mono">
