@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#eaf5ea] sticky drop-shadow-lg top-0 z-50">
+    <div className="bg-[#ecf0d1] sticky drop-shadow-lg top-0 z-50">
       <div className="navbar container mx-auto  ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -126,7 +126,7 @@ const Navbar = () => {
                 <img
                   src={user?.photoURL || "https://via.placeholder.com/150"}
                   alt="Profile"
-                  className="size-10 mx-auto rounded-full ring ring-yellow-300 text-center"
+                  className="size-10 object-cover mx-auto rounded-full ring ring-yellow-300 text-center"
                 />
                 <h2 className="text-xs hidden md:block font-serif font-extralight">
                   Welcome {user?.displayName}

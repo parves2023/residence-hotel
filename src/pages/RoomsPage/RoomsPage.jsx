@@ -112,7 +112,7 @@ const RoomsPage = () => {
 
           {/* Search Section */}
           <div className="flex flex-col mb-6 gap-4 border p-4 rounded-xl shadow-lg">
-            <h2 className="text-lg font-semibold mb-2">Search Products</h2>
+            <h2 className="text-lg font-semibold mb-2">Search Rooms</h2>
             <div className="relative">
               <input
                 type="text"
