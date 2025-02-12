@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
+import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#ecf0d1] sticky drop-shadow-lg top-0 z-50">
+    <div className="bg-backgroundnav  sticky drop-shadow-lg top-0 z-50">
       <div className="navbar container mx-auto  ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,19 +62,19 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn hidden md:block  btn-ghost font-sans text-gray-600 text-xl md:text-2xl">
+          <a className="btn hidden md:block  btn-ghost font-sans text-cta-text text-xl md:text-2xl">
             <span className="text-yellow-600 font-bold font-sans">
               Residence
             </span>
             Hotel
           </a>
-          <a className="btn flex md:hidden  btn-ghost font-sans text-gray-600 text-xl md:text-2xl">
+          <a className="btn flex md:hidden  btn-ghost font-sans text-cta-text text-xl md:text-2xl">
             <span className="text-yellow-600 font-bold font-sans">R</span>H
           </a>
         </div>
 
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 font-sans">
+          <ul className="menu menu-horizontal px-1 font-sans text-cta-text">
             <li>
               <NavLink to="/" className="block p-2">
                 Home
@@ -103,6 +104,10 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
+
+          <div className="mr-3">
+          <ThemeToggle></ThemeToggle>
+          </div>
           {/* Equip Now / Logout Button */}
           {user ? (
             <button
@@ -128,7 +133,7 @@ const Navbar = () => {
                   alt="Profile"
                   className="size-10 object-cover mx-auto rounded-full ring ring-yellow-300 text-center"
                 />
-                <h2 className="text-xs hidden md:block font-serif font-extralight">
+                <h2 className="text-xs hidden md:block font-serif font-extralight text-cta-text">
                   Welcome {user?.displayName}
                 </h2>
               </div>

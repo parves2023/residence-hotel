@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import ExploreAmenities from "../pages/Home/ExploreAmenities";
 import ReactTitle from "react-helmet";
 
+
 const AboutUs = () => {
   return (
     <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
@@ -15,6 +16,7 @@ const AboutUs = () => {
         >
           About Us
         </motion.h1>
+        
         <motion.p
           className="text-lg leading-relaxed mb-6 font-mono"
           initial={{ opacity: 0 }}

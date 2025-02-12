@@ -14,7 +14,7 @@ const ExploreAmenities = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-background">
       <div className="container mx-auto">
         <motion.h2
           className="text-3xl font-bold text-center mb-8 font-sans text-yellow-600"

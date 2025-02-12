@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 bg-gradient-to-r from-blue-50 to-white">
+    <section className="py-16 space-x-3 rounded-2xl px-3 my-5 bg-gradient-to-r from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto text-center">
         <motion.h2
           className="text-3xl font-bold mb-8 font-sans text-yellow-600"

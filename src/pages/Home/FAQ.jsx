@@ -41,7 +41,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-background">
       <div className="container mx-auto">
         <motion.h2
           className="text-3xl text-center mb-8 bg-yellow-600 font-mono font-semibold py-3 text-white rounded-2xl"

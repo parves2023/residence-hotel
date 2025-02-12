@@ -35,7 +35,7 @@ const TestimonialCarousel = ({ reviews }) => {
   
 
   return (
-    <div className="relative max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-6 overflow-hidden">
+    <div className="relative max-w-4xl mx-auto bg-background shadow-lg rounded-lg p-6 overflow-hidden">
       {reviews.length > 0 ? (
         <>
         <Slider ref={sliderRef} {...settings}>

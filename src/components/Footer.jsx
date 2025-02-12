@@ -16,6 +16,7 @@ const Footer = () => {
         text: `Thank you for subscribing with ${email}`,
         confirmButtonText: "OK",
       });
+      setEmail('')
     } else {
       // Show error message if email is empty
       Swal.fire({
