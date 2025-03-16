@@ -11,6 +11,7 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const emailRef = useRef();
+  const passwordRef = useRef(); // Add a ref for the password field
   const [Error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -31,11 +32,11 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log("sign in called");
-        
-        toast.success("login successful!", {
-                      position: "top-center",
-                      autoClose: 2000,
-                    });
+
+        toast.success("Login successful!", {
+          position: "top-center",
+          autoClose: 2000,
+        });
 
         setError("");
         setLoading(false);
@@ -71,31 +72,58 @@ const Login = () => {
       });
   };
 
+  // Function to handle easy login
+  const handleEasyLogin = () => {
+    const email = "hotel@new.com";
+    const password = "Asdfasdf";
+
+    // Set the email and password fields
+    emailRef.current.value = email;
+    passwordRef.current.value = password;
+
+    // Trigger the login process
+    signIn(email, password)
+      .then((result) => {
+        console.log("Easy login successful!");
+
+        toast.success("Easy login successful!", {
+          position: "top-center",
+          autoClose: 2000,
+        });
+
+        setError("");
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Easy login error:", error.message);
+        setError(error.message);
+        setLoading(false);
+      });
+  };
+
   useEffect(() => {
     if (user) {
       const destination = redirectPath || "/";
       const timer = setTimeout(() => {
         navigate(destination, { replace: true });
       }, 2000); // Wait for 2 seconds
-  
+
       return () => clearTimeout(timer); // Cleanup timeout on unmount or dependency change
     }
   }, [user, redirectPath, navigate, setRedirectPath]);
-  
-
 
   return (
-    <div className="my-5">
-      <ReactTitle title="RH || Login"/>
-      <h1 className="text-3xl mt-7 ralewayfont font-bold text-center mb-6">
+    <div className="my-5 bg-bakground">
+      <ReactTitle title="RH || Login" />
+      <h1 className="text-3xl mt-7 ralewayfont font-bold text-center mb-6 text-cta-text">
         Please <span className="text-[#309255]">Login</span>
       </h1>
       <ToastContainer
-          position="top-center"
-          hideProgressBar
-          newestOnTop
-          closeOnClick
-        />
+        position="top-center"
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+      />
 
       <form onSubmit={handleLogin} className="md:w-3/4 lg:w-1/2 mx-auto">
         <div className="form-control">
@@ -119,6 +147,7 @@ const Login = () => {
             type="password"
             required
             name="password"
+            ref={passwordRef} // Add ref for password field
             placeholder="Password"
             className="input input-bordered"
           />
@@ -140,6 +169,17 @@ const Login = () => {
           </button>
         </div>
       </form>
+
+      {/* Easy Login Button */}
+      <div className="text-center mt-4">
+        <button
+          onClick={handleEasyLogin}
+          className="btn bg-blue-50 px-10 hover:bg-blue-800 hover:text-white font-medium border border-blue-500"
+        >
+          Easy Login (Test User)
+        </button>
+      </div>
+
       {Error && <p className="text-red-600 text-center text-sm my-3">{Error}</p>}
       <p className="text-center mt-4">
         Do not have an account{" "}

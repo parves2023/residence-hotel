@@ -108,9 +108,9 @@ const Register = () => {
   };
 
   return (
-    <div className="my-7">
+    <div className="my-7 bg-background">
       <ReactTitle title="RH || Register"/>
-      <h1 className="text-3xl mt-7 ralewayfont font-bold text-center mb-6">
+      <h1 className="text-3xl mt-7 ralewayfont font-bold text-center mb-6 text-cta-text">
         Please <span className="text-[#309255]">Register</span>
       </h1>
       <form onSubmit={handleRegister} className="md:w-3/4 lg:w-1/2 mx-auto">
