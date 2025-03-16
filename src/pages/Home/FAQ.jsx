@@ -67,7 +67,7 @@ const FAQ = () => {
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full p-4 bg-white text-left text-lg font-semibold flex justify-between items-center hover:bg-gray-100"
+                  className="w-full p-4 bg-card-bg text-left text-lg font-semibold flex justify-between items-center hover:bg-card text-cta-text"
                 >
                   {faq.question}
                   <motion.span

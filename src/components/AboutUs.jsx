@@ -5,7 +5,7 @@ import ReactTitle from "react-helmet";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 p-6">
+    <div className="min-h-screen bg-background text-gray-800 p-6">
       <ReactTitle title="RH || About Us"/>
       <div className="container mx-auto max-w-4xl text-center">
         <motion.h1
@@ -18,7 +18,7 @@ const AboutUs = () => {
         </motion.h1>
         
         <motion.p
-          className="text-lg leading-relaxed mb-6 font-mono"
+          className="text-lg leading-relaxed mb-6 font-mono text-cta-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -30,7 +30,7 @@ const AboutUs = () => {
           we ensure every stay feels like home.
         </motion.p>
         <motion.p
-          className="text-lg leading-relaxed font-sans"
+          className="text-lg leading-relaxed font-sans text-cta-text"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}

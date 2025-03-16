@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
           ].map((feature, index) => (
             <motion.div
               key={index}
-              className="p-6 shadow-lg rounded-lg bg-white"
+              className="p-6 shadow-lg rounded-lg bg-cardback"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}

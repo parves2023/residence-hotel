@@ -19,7 +19,7 @@ const OurSpecialOffers = () => {
 
   
   return (
-    <section className="bg-gradient-to-r rounded-2xl  from-[#b5be7e] to-[#264e1d] py-20 px-6 text-white">
+    <section className="bg-gradient-to-r rounded-2xl  from-[#b5be7e] to-[#264e1d] py-20 px-6  text-white">
       <motion.div
         className="max-w-7xl mx-auto text-center"
         initial={{ opacity: 0 }}
@@ -35,7 +35,7 @@ const OurSpecialOffers = () => {
         >
           {/* Offer 1 */}
           <motion.div
-            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-card p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -43,7 +43,7 @@ const OurSpecialOffers = () => {
               alt="Offer 1"
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">50% Off This Month</h3>
+            <h3 className="text-xl font-semibold text-cta-text mb-2">50% Off This Month</h3>
             <p className="text-gray-600 font-mono mb-4">
               Book now and save 50% on all bookings this month. Limited-time offer!
             </p>
@@ -57,7 +57,7 @@ const OurSpecialOffers = () => {
 
           {/* Offer 2 */}
           <motion.div
-            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-card p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -65,7 +65,7 @@ const OurSpecialOffers = () => {
               alt="Offer 2"
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">Free Breakfast With Stay</h3>
+            <h3 className="text-xl text-cta-text font-semibold mb-2">Free Breakfast With Stay</h3>
             <p className="text-gray-600 font-mono mb-4">
               Enjoy a complimentary breakfast every morning when you book your stay with us.
             </p>
@@ -78,7 +78,7 @@ const OurSpecialOffers = () => {
 
           {/* Offer 3 */}
           <motion.div
-            className="flex flex-col justify-between bg-white p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
+            className="flex flex-col justify-between bg-card p-6 rounded-lg shadow-lg transform transition-transform duration-500 ease-in-out hover:scale-105"
             whileHover={{ scale: 1.05 }}
           >
             <img
@@ -86,7 +86,7 @@ const OurSpecialOffers = () => {
               alt="Offer 3"
               className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <h3 className="text-xl font-semibold mb-2">Stay 3 Nights, Get 1 Free</h3>
+            <h3 className="text-xl text-cta-text font-semibold mb-2">Stay 3 Nights, Get 1 Free</h3>
             <p className="text-gray-600 font-mono mb-4">
               Book 3 nights and get 1 night free. Perfect for a long getaway.
             </p>

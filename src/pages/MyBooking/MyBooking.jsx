@@ -188,9 +188,9 @@ const MyBooking = () => {
         My Bookings
       </h1>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border border-gray-300">
+        <table className="min-w-full bg-cardback border border-gray-300 text-cta-text">
           <thead className="font-sans">
-            <tr className="bg-gray-100 text-left">
+            <tr className="bg-card text-left">
               <th className="px-4 py-2 border-b border-gray-300">Room Image</th>
               <th className="px-4 py-2 border-b border-gray-300">Room Name</th>
               <th className="px-4 py-2 border-b border-gray-300">Price</th>
@@ -205,7 +205,7 @@ const MyBooking = () => {
           <tbody className="font-mono">
             {bookings.map((room) =>
               room?.bookings.map((booking, index) => (
-                <tr key={`${room._id}-${index}`} className="hover:bg-gray-50">
+                <tr key={`${room._id}-${index}`} className="hover:bg-card">
                   <td className="px-4 py-2 border-b border-gray-300">
                     <img
                       src={room.image}

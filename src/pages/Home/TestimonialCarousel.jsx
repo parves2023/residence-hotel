@@ -40,11 +40,11 @@ const TestimonialCarousel = ({ reviews }) => {
         <>
         <Slider ref={sliderRef} {...settings}>
   {reviews.map((review, index) => (
-    <div key={index} className="px-3 mb-12 md:mb-3"> 
-      <div className="bg-gray-100 min-h-56 p-4 rounded-lg shadow-md transform transition-transform duration-500 ease-in-out hover:scale-105 flex flex-col justify-around">
-        <p className="text-lg font-medium font-mono">{review.comment}</p>
+    <div key={index} className="px-3 mb-12 border-border md:mb-3"> 
+      <div className="bg-card border-border min-h-56 p-4 rounded-lg shadow-md transform transition-transform duration-500 ease-in-out hover:scale-105 flex flex-col justify-around">
+        <p className="text-lg text-cta-text  font-medium font-mono">{review.comment}</p>
         <div>
-        <p className="text-sm text-gray-500 mt-2 font-sans">- {review.reviewer}</p>
+        <p className="text-sm text-cta-text mt-2 font-sans">- {review.reviewer}</p>
         <p className="mt-2 text-yellow-500">
           {"★".repeat(review.rating)}
           {"☆".repeat(5 - review.rating)}

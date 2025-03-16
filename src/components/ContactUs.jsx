@@ -26,7 +26,7 @@ const ContactUs = () => {
   
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 text-gray-800">
+    <div className="min-h-screen bg-background p-6 text-gray-800">
       <ReactTitle title="RH || Contact"/>
       <div className="container mx-auto max-w-4xl">
         <motion.h1
@@ -38,7 +38,7 @@ const ContactUs = () => {
           Contact Us
         </motion.h1>
         <motion.p
-          className="text-lg text-center mb-6 font-mono"
+          className="text-lg text-cta-text text-center mb-6 font-mono text-cta-text"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -46,7 +46,7 @@ const ContactUs = () => {
           Got questions or need help with your booking? We're here for you 24/7!
         </motion.p>
         <motion.form
-          className="bg-white shadow-lg rounded-lg p-6"
+          className="bg-cardback shadow-lg rounded-lg p-6 my-10"
           onSubmit={(e) => {
             e.preventDefault(); // Prevents the default form submission behavior
             handleContactSubmit();
@@ -55,8 +55,8 @@ const ContactUs = () => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
         >
-          <div className="mb-4">
-            <label htmlFor="name" className="block font-medium text-lg">
+          <div className="mb-4 ">
+            <label htmlFor="name" className="block font-medium text-lg text-cta-text ">
               Name
             </label>
             <input
@@ -67,7 +67,7 @@ const ContactUs = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block font-medium text-lg">
+            <label htmlFor="email" className="block font-medium text-lg text-cta-text">
               Email
             </label>
             <input
@@ -78,7 +78,7 @@ const ContactUs = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="block font-medium text-lg">
+            <label htmlFor="message" className="block font-medium text-lg text-cta-text">
               Message
             </label>
             <textarea

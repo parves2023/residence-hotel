@@ -17,7 +17,7 @@ const RoomsPage = () => {
   const [maxPrice, setMaxPrice] = useState("");
 
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState(false);
+  const [filter, setFilter] = useState(true);
 
   // Function to render star ratings
   const renderStars = (rating) => {
@@ -106,12 +106,12 @@ const RoomsPage = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed top-28 left-5 bg-white w-72 p-6 shadow-lg rounded-lg z-20"
+          className="fixed top-28 left-5 bg-cardback w-72 p-6 shadow-lg rounded-lg z-20"
         >
          
 
           {/* Search Section */}
-          <div className="flex flex-col mb-6 gap-4 border p-4 rounded-xl shadow-lg">
+          <div className="flex flex-col mb-6 gap-4 border text-cta-text p-4 rounded-xl shadow-lg">
             <h2 className="text-lg font-semibold mb-2">Search Rooms</h2>
             <div className="relative">
               <input
@@ -119,28 +119,28 @@ const RoomsPage = () => {
                 placeholder="Search by name"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full p-3 border-2 bg-gray-100 rounded-md pl-10"
+                className="w-full p-3 border-2 bg-gray-100 text-gray-900 rounded-md pl-10"
               />
               <FaSearch className="absolute top-3 left-3 text-gray-400 text-xl" />
             </div>
           </div>
 
            {/* Price Filter Section */}
-           <div className="flex flex-col gap-4 border p-4 rounded-xl shadow-lg ">
+           <div className="flex flex-col gap-4 text-cta-text border p-4 rounded-xl shadow-lg ">
             <h2 className="text-lg font-semibold mb-2">Filter by Price</h2>
             <input
               type="number"
               placeholder="Min Price"
               value={minPrice}
               onChange={(e) => setMinPrice(e.target.value)}
-              className="border p-2 rounded-md"
+              className="border p-2 rounded-md text-gray-900"
             />
             <input
               type="number"
               placeholder="Max Price"
               value={maxPrice}
               onChange={(e) => setMaxPrice(e.target.value)}
-              className="border p-2 rounded-md"
+              className="border p-2 rounded-md text-gray-950"
             />
             <button
               onClick={() => {
